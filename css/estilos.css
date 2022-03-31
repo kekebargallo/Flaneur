@@ -346,6 +346,7 @@ ul.header__nav__list>li>a {
         display: flex;
         width: 70%;
         height: max-content;
+        margin: 0px 0px 20px 0px;
     }
     
     .galeria__contenido__ar {
