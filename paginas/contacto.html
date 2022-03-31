@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="shortcut icon" href="../assets/img/flaneur_icon.jpeg" type="image/x-icon">
+    <title>Flâneur</title>
+</head>
+<body>
+    <!--Comentario-->
+    <header class="header">
+
+        <nav class="header__nav">
+
+            <ul class="header__nav__list">
+                <li>
+                    <a href="../index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="../paginas/shop.html">
+                    Shop
+                    </a>
+                </li>
+                <li>
+                    <a href="../paginas/galeriaDeArte.html">
+                    Galería de arte
+                    </a>
+                </li>
+                <li>
+                    <a href="../paginas/sobreNosotros.html">
+                    Sobre nosotros
+                    </a>
+                </li>
+                <li>
+                    <a href="../paginas/contacto.html">
+                    Contactos
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+        
+        <div class="header__logo">
+         <img class="header__logo__img" src="../assets/img/flaneur_icon.jpeg" >
+        </div>
+
+        <div class="header__insta">
+        <a href="https://www.instagram.com/keke_bargallo/?hl=es-la"><img class="header__insta__img" src="../assets/img/insta.png"></a>
+        </div>
+    </header>
+    
+    <main>
+        <section class="container-contacto">
+            <h1 class="title contacto__tit">Contactos</h1>
+            <article class="contacto__info">
+               <table  id="contacto" border="5px">
+                   <tr>
+                       <th>email</th>
+                        <td><p>flaneur@gmail.com</p></td>
+                   </tr>
+
+                    <tr>
+                        <th>instagram</th>
+                        <td><p>@flâneur</p></td>
+                    </tr>
+
+                    <tr>
+                        <th>direccion</th>
+                        <td>Libertador 5231</td>
+                    </tr>
+               </table> 
+            </article>
+
+            <br>
+            <br>
+
+         <h3 class="contacto__tit-form">Escribinos</h3>
+            <br>
+         <form class="contacto__form" action="procesar.php" method="">
+             <p class="contacto__form_p">
+             <label for="nombre">Nombre: </label>
+             <input type="text" name="nombre" placeholder="ingresa_tu_nombre">
+             </p>
+    
+             <p class="contacto__form_p">
+             <label for="apellido">Apellido: </label>
+             <input type="text" name="apellido" placeholder="ingresa_tu_apellido"> 
+             </p>
+    
+             <p class="contacto__form_p">
+                <label for="email">Email: </label>
+                <input type="text" name="email" placeholder="ej: 'pedro@gmail.com'" required>
+             </p>
+
+             <p class="contacto__form_p">
+               <label for="pass">Contraseña: </label>
+                <input type="password" name="pass">
+             </p>
+    
+             <h4>Coleccion</h4>
+             
+             <div>
+                 <p class="contacto__form__c">
+                 <label for="coleccion">remera 1</label>
+                 <input type="radio" name="coleccion" value="remera 1">
+                 </p>
+    
+                 <p class="contacto__form__c" >
+                 <label for="coleccion">remera 2</label>
+                 <input type="radio" name="coleccion" value="remera 1">
+                </p>
+            </div>
+    
+             <!--Botones-->
+             <p class="contacto__form__b">
+             <input type="submit" value="enviar">
+             </p>
+    
+             <p class="contacto__form__b">
+             <input type="reset" value="borrar formulario">
+             </p>
+
+         </form>
+        </section>
+    </main>
+
+    <footer class="footer"> 
+        <h6 class="footer__derechos">Todos los derechos registrados 2022©</h6>
+    </footer>
+</body>
+</html>
