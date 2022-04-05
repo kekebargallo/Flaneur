@@ -697,7 +697,7 @@ ul.header__nav__list>li>a {
 
 @media screen and (max-width: 600px) {
     .footer__derechos {
-        margin: 20px auto;
+        margin: 0 auto;
         align-self: center;
     }
 }
