@@ -538,6 +538,33 @@ ul.header__nav__list>li>a {
 
 /*SHOP*/
 
+/*SOBRE NOSOTROS*/
+
+.sb__article {
+    display: flex;
+    width: 90% ;
+    margin: 0 auto;
+}
+
+.sb__aside {
+    display: flex;
+    width:100%;
+    height: max-content;
+}
+
+.youtube {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 360px) {
+    .youtube {
+        width: 200px;
+        height: 100px;
+    }
+}
+
+/*SOBRE NOSOTROS*/
+
 /*CONTACTO*/
 
 .container-contacto {
