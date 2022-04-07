@@ -194,6 +194,41 @@ ul.header__nav__list>li>a {
     height: 384px;
 }
 
+.index__contenedor-botones {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "boton_uno logo boton_dos";
+}
+
+.index__contenedor-logo {
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes img_vueltas {
+    0% { transform: rotateY(0deg); }
+    20% { transform: rotateY(90deg); }
+    40% { transform: rotateY(180deg); }
+    60% { transform: rotateY(270deg); }
+    80% { transform: rotateY(360deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.index__contenedor-logo__img {
+    width: 75px;
+    height: 75px;
+    animation-name: img_vueltas;
+    animation-duration: 2s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+}
+
 .index__galeria div {
    display: flex;
 }
