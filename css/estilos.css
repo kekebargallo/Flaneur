@@ -335,13 +335,13 @@ ul.header__nav__list>li>a {
 .galeria {
     width: 80%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 0.1fr 0.6fr;
     grid-template-areas: 
     "tit   tit"
     "cont cont";
-    height: 650px;
-    margin: 10px;
+    height: max-content;
+    margin: 10px 0px 10px 10px;
 }
 
 .galeria__titulo {
@@ -353,40 +353,40 @@ ul.header__nav__list>li>a {
     grid-area: cont;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: grey;
     margin: 20px 30px;
-    padding: 20px;
-    width: max-content;
+    width: 100%;
     height: 100%;
-    padding: 20px;
 }
 
 .galeria__categoria__ar {
     grid-area: cont;
     display: grid;
-    grid-template-columns: 0.5fr 0.2fr 0.5fr 0.2fr;
+    grid-template-columns: 0.5fr 0.5fr;
     column-gap: 10px;
     justify-content: center;
     background-color: grey;
     margin: 20px 30px 20px;
     width: max-content;
     height: max-content;
-    padding: 20px;
+    padding: 20px 20px;
 }
 
 .galeria__contenido {
     display: flex;
-    width: 70%;
     height: 400px;
-    margin-right: 2%;
-    margin-left: 2%;
+    width: 100%;
+    height: max-content;
+    margin: 0px 0px 20px 0px;
+    justify-content: center;
 }
 
 .galeria__contenido__ar {
     display: flex;
     width: 70%;
-    height: 512px;
-    margin-right: 2%;
+    height: max-content;
+    margin-right: 2% 0% 2% 2%;
 }
 
 .galeria__contenido__texto {
@@ -406,35 +406,54 @@ ul.header__nav__list>li>a {
 }
 
 .galeria__contenido__insta {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
+}
+
+.galeria .inv {
+    width: 50rem;
+}
+
+.galeria .reg {
+    width: 40rem;
 }
 
 @media screen and (max-width: 600px) {
     .galeria {
         grid-template-columns: 1fr;
-        grid-template-rows: 0.1fr 0.6fr 0.6fr;
+        grid-template-rows: 0.03fr 0.6fr 0.6fr;
         grid-template-areas: 
         "tit "
         "cont"
         "cont";
+        width: 100%;
         height: max-content;
         margin: 20px 0px;
+        align-self: center;
     }
     
     .galeria__categoria {
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center;
+        padding: 10px 0px 0px;
         margin: 0px;
-        width: 100%;
-        padding: 10px;
+        width: 90%;
+        height: max-content;
+        justify-self: center;
     }
     
     .galeria__categoria__ar {
         grid-template-columns: 1fr;
-        grid-template-rows: 0.1fr 0.1fr 1fr 0.2fr;
-        background-color: grey;
+        grid-template-rows: 1fr 1fr;
+        grid-area: cont;
+        display: grid;
         margin: 0px 0px;
+        width: 90%;
+        height: 90%;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
     }
     
     .galeria__contenido {
@@ -459,18 +478,26 @@ ul.header__nav__list>li>a {
     }
     
     .galeria__fotos {
-        width: 384px;
-        height: 512px;
+        width: 360px;
+        height: 480px;
     }
     
     .galeria__fotos--inv {
-        width: 512px;
-        height:384px;
+        width: 480px;
+        height: 360px;
     }
     
     .galeria__contenido__insta {
         width: 25px;
         height: 25px;
+    }
+
+    .galeria .inv {
+        width: 30rem;
+    }
+    
+    .galeria .reg {
+        width: 24rem;
     }
 }
 
@@ -491,7 +518,7 @@ ul.header__nav__list>li>a {
         grid-area: cont;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 0.1fr 1fr 0.1fr;
+        grid-template-rows: 1fr 1fr;
         justify-content: center;
         background-color: grey;
         margin: 0px 0px;
@@ -520,6 +547,39 @@ ul.header__nav__list>li>a {
         height: 100%;
     }
 }
+
+@media screen and (max-width: 520px) {
+    .galeria .inv {
+        width: 25rem;
+    }
+    
+    .galeria .reg {
+        width: 20rem;
+    }
+
+
+}
+
+@media screen and (max-width: 440px) {
+    .galeria .inv {
+        width: 20rem;
+    }
+    
+    .galeria .reg {
+        width: 16rem;
+    }
+}
+
+@media screen and (max-width: 343px) {
+    .galeria .inv {
+        width: 15rem;
+    }
+    
+    .galeria .reg {
+        width: 12rem;
+    }
+}
+
 
 /*GALERIA*/
 
