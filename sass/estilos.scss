@@ -20,6 +20,10 @@
        height: 30px;
    }
    
+   @mixin header-seleccion ($scale, $trans){
+       transform: scale($scale) translate($trans)
+   }
+
    .header__nav__list {
        display: flex;
        flex-wrap: wrap;
@@ -32,7 +36,7 @@
             margin: 5px;
             padding: 2px;
             &:hover {
-                transform: scale(1.2, 1.2) translate(0px, 3px);
+                @include header-seleccion((1.2, 1.2), (0px, 3px));
                 border-radius: 5px;
             }
             a {
@@ -43,9 +47,14 @@
         }
    }
    
+   $header-px: (
+       'large': 200px,
+       "small": 40px
+   );
+
    .header__logo {
-       height: 200px;
-       width: 200px;
+       height: map-get($map: $header-px, $key: 'large');
+       width: map-get($map: $header-px, $key: 'large');
        margin: 0px auto;
        justify-self: center;
        align-self: center;
@@ -56,8 +65,8 @@
        margin-top: 40px;
        border: solid 2px black;
        border-radius: 5px;
-       width: 200px;
-       height: 200px;
+       width: map-get($map: $header-px, $key: 'large');
+       height: map-get($map: $header-px, $key: 'large');
    }
    
    .header__insta {
@@ -69,12 +78,10 @@
    }
    
    .header__insta__img {
-       width: 40px;
-       height: 40px;
+       width: map-get($map: $header-px, $key: 'small');
+       height: map-get($map: $header-px, $key: 'small');
        &:hover {
-           .header__insta__img:hover{
-                transform: scale(1.1, 1.1) translate(-3px, 3px);
-            }
+            @include header-seleccion((1.1, 1.1), (-3px, 3px))
        }
    }
    
@@ -112,7 +119,15 @@
                     font-size: 15px;
                 }
             }
-       } 
+       }
+       
+       .header__insta__img {
+        width: 40px;
+        height: 40px;
+        &:hover {
+            transform: scale(1, 1) translate(0px, 0px);
+        }
+    } 
    }
    
    @media screen and (max-width: 495px) {
@@ -137,8 +152,17 @@
    /*HEADER*/
    
    .title {
-       text-align: center;
-       font-size: 75px;
+    @if $color == grey {
+        text-align: center;
+        font-size: 75px;
+    }
+    @else if $color == black {
+        color: red;
+    }
+    @else {
+        text-align: start;
+        font-size: 60px;
+    }
    }
    
    @media screen and (max-width: 600px) {
@@ -161,9 +185,8 @@
        margin: 0px auto 20px;
        width: 512px;
        height:384px;
-       
-   }
-   
+       }
+
    /*INDEX*/
    
    .index__fondo {
@@ -228,6 +251,21 @@
        animation-duration: 2s;
        animation-delay: 5s;
        animation-iteration-count: infinite;
+   }
+
+   @for $i from 1 through 2 {
+       @if $i == 1{
+            .boton-#{$i} {
+                grid-area: boton_uno;
+                display: none;
+            }
+        }
+        @if $i == 2{
+            .boton-#{$i} {
+                grid-area: boton_dos;
+                display: none;
+            }
+        }
    }
    
    .index__galeria div {
@@ -305,10 +343,9 @@
    }
    
    .galeria__contenido__ar {
-       display: flex;
-       width: 70%;
+       @extend .galeria__contenido;
        height: 512px;
-       margin-right: 2%;
+       margin-left: 2%;
    }
    
    .galeria__contenido__texto {
@@ -458,23 +495,12 @@
    }
    
    .shop__galeria__pan {
-       width: max-content;
-       height: 620px;
-       background-color: $color;
-       padding: 20px;
-       margin-bottom: 40px;
-       display: flex;
-       align-items: center;
+       @extend .shop__galeria__rem;
    }
    
    .shop__galeria__acc {
-       width: max-content;
-       height: 620px;
-       background-color: $color;
-       padding: 20px;
+       @extend .shop__galeria__rem;
        margin-bottom: 10px;
-       display: flex;
-       align-items: center;
    }
    
    .shop__contenido {
@@ -520,28 +546,15 @@
        }
    
        .shop__galeria__pan {
-           width: 100%;
-           height: max-content;
-           background-color: $color;
-           padding: 20px 0px;
-           margin-bottom: 40px;
-           display: grid;
-           row-gap: 15px;
-           grid-template-columns: 1fr;
-           grid-template-rows: 1fr 1fr;
-           justify-content: center;
+           @extend .shop__galeria__rem;
        }
    
        .shop__galeria__acc {
-           width: 100%;
-           height: max-content;
-           background-color: $color;
-           padding: 20px 0px;
+          @extend .shop__galeria__rem;
            margin-bottom: 10px;
            display: grid;
-           grid-template-columns: 1fr;
+           row-gap: 0px;
            grid-template-rows: 1fr;
-           justify-content: center;
        }
    
        .shop__contenido {
@@ -694,17 +707,17 @@
    }
    
    @media screen and (max-width: 465px) {
-       .lab_no {
-           margin-right: 20px;
-       }
-   
-       .lab_ap {
-           margin-right: 20px;
-       }
-   
-       .lab_em {
-           margin-right: 35px;
-       }
+        $contacto__form__lab: (
+            no: 20px,
+            ap: 20px,
+            em: 35px
+        );
+
+        @each $lab, $margen in $contacto__form__lab {
+            .lab_#{$lab} {
+                margin-right: $margen;
+            }
+        }
    }
    
    @media screen and (max-width: 455px) {
