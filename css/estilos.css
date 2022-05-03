@@ -1,3 +1,7 @@
+@font-face {
+  font-family: alicia;
+  src: url("../assets/fonts/Alice_in_Wonderland_3.ttf");
+}
 /*HEADER*/
 .header {
   width: 100%;
@@ -102,6 +106,7 @@
   }
   .header__nav li a {
     font-size: 15px;
+    font-family: alicia;
   }
 
   .header__insta__img {
@@ -131,6 +136,7 @@
 .title {
   text-align: center;
   font-size: 75px;
+  font-family: alicia;
 }
 
 @media screen and (max-width: 600px) {

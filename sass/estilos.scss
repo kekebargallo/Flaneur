@@ -1,4 +1,5 @@
 @import "color";
+@import "fuentes";
 
 /*HEADER*/
 
@@ -117,6 +118,7 @@
                 }
                 a {
                     font-size: 15px;
+                    font-family: $fuente;
                 }
             }
        }
@@ -155,6 +157,7 @@
     @if $color == grey {
         text-align: center;
         font-size: 75px;
+        font-family: $fuente;
     }
     @else if $color == black {
         color: red;
