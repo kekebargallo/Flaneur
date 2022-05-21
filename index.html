@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flaneur, marrca de ropa independiente.">
     <meta name="keywords" content="tienda de ropa, tienda de ropa online buenos aires, ropa ancha, ropa">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilos.css">
     <link rel="shortcut icon" href="assets/img/flaneur_icon.jpeg" type="image/x-icon">
     <title>Flâneur</title>
 </head>
 <body>
     <!--Comentario-->
+
     <header class="header">
 
+      <div class="header__logo">
+        <a href="./index.html">
+            <img class="header__logo__img" src="./assets/img/flaneur_icon.jpeg" >
+        </a>
+       </div>
+      
         <nav class="header__nav">
 
             <ul class="header__nav__list">
@@ -43,12 +51,6 @@
             </ul>
 
         </nav>
-        
-        <div class="header__logo">
-         <a href="./index.html">
-             <img class="header__logo__img" src="./assets/img/flaneur_icon.jpeg" >
-         </a>
-        </div>
 
         <div class="header__insta">
         <a href="https://www.instagram.com/keke_bargallo/?hl=es-la" target="_blank"><img class="header__insta__img" src="./assets/img/insta.png"></a>
@@ -56,7 +58,27 @@
     </header>
     
     <main>
-        <h1 class="title">HOME</h1>
+        <h2 class="title">HOME</h2>
+        <section class="index__flaneur">
+          <h1>FLANEUR</h1>
+        </section>
+        <section  class="index__galeria__uno">
+          <h2 class="index__tit-galeria-uno">Disponible</h2>
+          <article class="index__g-galeria-uno">
+            <div class="index__cards-galeria-uno">
+              <a href="#"><img src="./assets/img/uma_cuadrada.jpeg"></a>
+            </div>
+            <div class="index__cards-galeria-uno">
+              <a href="#"><img src="./assets/img/uma_cuadrada.jpeg"></a>
+            </div>
+            <div class="index__cards-galeria-uno">
+              <a href="#"><img src="./assets/img/uma_cuadrada.jpeg"></a>
+            </div>
+            <div class="index__cards-galeria-uno">
+              <a href="#"><img src="./assets/img/uma_cuadrada.jpeg"></a>
+            </div>
+          </article>
+        </section>
         <section>
             <article class="index__fondo">
                 <div class="index__galeria">
@@ -98,5 +120,6 @@
     <footer class="footer"> 
         <h6 class="footer__derechos">Todos los derechos registrados 2022©</h6>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

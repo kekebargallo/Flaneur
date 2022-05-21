@@ -1,24 +1,49 @@
-@import "color";
 @import "fuentes";
+@import "color";
 
 /*HEADER*/
 
 .header {
     width: 100%;
-    height: 300px;
+    height: 200px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-template-areas: 
-    "nav logo logo"
+    "logo logo"
+    "nav nav"
     ;
-    background-image: linear-gradient($color, rgb(53, 53, 53));
    }
+
+   $header-px: (
+    'large': 200px,
+    'medium': 125px,
+    "small": 40px
+    );
+
+.header__logo {
+    grid-area: logo;
+    height: map-get($map: $header-px, $key: 'medium');
+    width: map-get($map: $header-px, $key: 'medium');
+    margin: 0px auto;
+    justify-self: center;
+    align-self: center;
+    }
+
+.header__logo__img {
+    margin: 0 auto;
+    width: map-get($map: $header-px, $key: 'medium');
+    height: map-get($map: $header-px, $key: 'medium');
+    }
    
    .header__nav {
        grid-area: nav;
        margin-top: 10px;
-       width: 500px;
-       height: 30px;
+       width: max-content;
+       height: 50px;
+       background-color: rgb(216, 216, 216);
+       margin: 0 auto;
+       border-radius: 10px;
    }
    
    @mixin header-seleccion ($scale, $trans){
@@ -28,47 +53,26 @@
    .header__nav__list {
        display: flex;
        flex-wrap: wrap;
-       justify-content: flex-start;
+       justify-content: center;
        list-style-type: none;
        margin: 0 auto;
        padding-inline-start: 20px;
 
        li {
-            margin: 5px;
-            padding: 2px;
-            &:hover {
-                @include header-seleccion((1.2, 1.2), (0px, 3px));
-                border-radius: 5px;
-            }
+            margin: 7px 15px;
             a {
                 text-decoration: none;
                 color: black;
-                font-size: 24px;
+                font-size: 28px;
                 font-family: alicia;
+                transition: 0.3s;
+            }
+            &:hover {
+                a {
+                    color: white;
+                }
             }
         }
-   }
-   
-   $header-px: (
-       'large': 200px,
-       "small": 40px
-   );
-
-   .header__logo {
-       height: map-get($map: $header-px, $key: 'large');
-       width: map-get($map: $header-px, $key: 'large');
-       margin: 0px auto;
-       justify-self: center;
-       align-self: center;
-   }
-   
-   .header__logo__img {
-       margin: 0 auto;
-       margin-top: 40px;
-       border: solid 2px black;
-       border-radius: 5px;
-       width: map-get($map: $header-px, $key: 'large');
-       height: map-get($map: $header-px, $key: 'large');
    }
    
    .header__insta {
@@ -190,6 +194,52 @@
        }
 
    /*INDEX*/
+
+   .index__flaneur {
+       width: 50%;
+       height: 300px;
+       margin: 0 auto 25px auto;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-image: url('../assets/img/baby_shoes.jpg');
+       h1 {
+           font-size: 60px;
+           color: white;
+       }
+   }
+
+   .index__galeria__uno {
+       width: 70%;
+       height: max-content;
+       display: grid;
+       grid-template-columns: repeat(4, 1fr);
+       grid-template-rows: 0.1fr 1fr;
+       grid-template-areas: "tit . . ."
+       "card card card card";
+       row-gap: 30px;
+       margin: 40px auto;
+   }
+
+   .index__tit-galeria-uno {
+       grid-area: tit;
+       justify-self: center;
+   }
+
+   .index__g-galeria-uno {
+       grid-area: card;
+       display: flex;
+       justify-content: space-between;
+   }
+
+   .index__cards-galeria-uno{
+       width: 200px;
+       height: 200px;
+       img {
+        width: 200px;
+        height: 200px;
+       }
+   }
    
    .index__fondo {
        margin: 0 auto;
