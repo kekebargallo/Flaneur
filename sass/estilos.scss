@@ -166,21 +166,6 @@
            margin: 20px auto;
        }
    }
-   
-   .center {
-       display: block;
-       margin-left: auto;
-       margin-right: auto;
-       width: 384px;
-       height: 512px;
-   }
-   
-   .centerI {
-       display: block;
-       margin: 0px auto 20px;
-       width: 512px;
-       height:384px;
-       }
 
    /*INDEX*/
 
@@ -191,10 +176,10 @@
        display: flex;
        justify-content: center;
        align-items: center;
-       background-image: url('../assets/img/baby_shoes.jpg');
+       background-image: url('../assets/img/felix-ave-galeria.jpg');
        h1 {
            font-size: 60px;
-           color: white;
+           color: rgb(134, 0, 0);
        }
    }
 
@@ -319,7 +304,19 @@
         }
    }
    
+
+   @media screen and (max-width: 1550px) {
+    .index__flaneur {
+        background-image: url('../assets/img/felix-ave-galeria2.jpg');
+   }
+}
+
    @media screen and (max-width: 1250px) {
+
+    .index__flaneur {
+        background-image: url('../assets/img/felix-ave-galeria3.jpg');
+   }
+
     .index__cards-galeria-uno {
         width: 150px;
         height: 150px;
@@ -361,6 +358,10 @@
 }
 
     @media screen and (max-width: 970px) {
+        .index__flaneur {
+            background-image: url('../assets/img/felix-ave-galeria4.jpg');
+       }
+
         .index__galeria-dos{
             img{
                 width: 340px;
@@ -413,6 +414,10 @@
         }
     }
 
+    .index__flaneur {
+        background-image: url('../assets/img/felix-ave-galeria5.jpg');
+   }
+
        .index__galeria {
            padding: 5% 10% 10% 10%;
            div {
@@ -458,6 +463,10 @@
    }
 
    @media screen and (max-width: 480px) {
+    .index__flaneur {
+        background-image: url('../assets/img/felix-ave-galeria6.jpg');
+     }
+
        .index__g-galeria-dos {
            img {
                width: 240px;
@@ -685,137 +694,296 @@
    
    /*SHOP*/
    
-   .shop__galeria__rem {
-       width: max-content;
-       height: 620px;
-       background-color: $color;
-       padding: 20px;
-       margin-bottom: 40px;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-   }
-   
-   .shop__galeria__pan {
-       @extend .shop__galeria__rem;
-   }
-   
-   .shop__galeria__acc {
-       @extend .shop__galeria__rem;
-       margin-bottom: 10px;
-   }
-   
-   .shop__contenido {
-       width: 500px;
-       height: 550px;
+   .shop__galeria {
        display: grid;
-       grid-template-columns: repeat(2, 0.5fr);
-       grid-template-rows: repeat(2, 1fr);
-       grid-template-areas: "img img"
-        "texto boton";
-   }
-   
-   .shop__contenido__texto {
-       align-items: center;
-       grid-area: texto;
-       width: max-content;
-       height: 20px;
-   }
-   
-   .shop__contenido__texto--tit {
-       font-weight: bold;
+       width: 80%;
+       height: max-content;
+       margin: 40px auto;
+       grid-template-columns: repeat(2, 1fr);
+       grid-template-rows: 1fr 1fr;
+       column-gap: 30px;
+       row-gap: 40px;
    }
 
-   .shop__contenido__comprar {
+   .shop__galeria-card {
+       width: 500px;
+       display: grid;
+       grid-template-columns: repeat(4, 1fr);
+       grid-template-rows: repeat(4, 0.25fr);
+       grid-template-areas: "img img . ."
+       "img img info info" "img img talle talle" "img img boton boton";
+   }
+
+   .shop__galeria-card-carrusel {
+    grid-area: img;
+    width: 285px;
+    height: 380px;
+    img {
+        width: 285px;
+        height: 380px;
+    }
+   }
+
+   .shop__galeria-card-info {
+       grid-area: info;
+       margin-left: 5px;
+       align-self: center;
+   }
+
+   .shop__galeria-card-talles {
+       grid-area: talle;
+       h3 {
+           font-size: 15px;
+           padding: 0 5px;
+       }
+       label {
+           padding: 0 5px;
+       }
+   }
+
+   .shop__galeria-card-boton {
        grid-area: boton;
-       width: max-content;
+       align-self: end;
+       justify-self: end;
+       text-decoration: none;
        height: max-content;
-       margin: 4px;
-       padding: 8px 12px;
-       border-radius: 10px;
-       background-image: radial-gradient(rgb(197, 197, 197), white);
-       &:hover {
-           font-size: 18px;
-           transform: translate(-2px, 2px);
+       span {
+        padding: 7px 12px;
+        border-radius: 10px;
+        background-color: rgb(187, 187, 187);
+        color: rgb(3, 0, 0);
+        font-family: Arial, Helvetica, sans-serif;
+        transition: 0.3s;
+        &:hover {
+            background-color: rgb(56, 56, 56);
+            color: rgb(255, 255, 255);        
+        }
        }
-       a {
-           text-decoration: none;
-           color: black;
-       }
    }
-   
-   .shop__img {
-       grid-area: img;
-       width: 384px;
-       height: 512px;
-       margin-right: 20px;
+
+   @media screen and (max-width: 1170px) {
+    .shop__galeria {
+        height: max-content;
+        margin: 40px auto;
+        column-gap: 30px;
+        row-gap: 40px;
+    }
+ 
+    .shop__galeria-card {
+        width: 420px;
+    }
+ 
+    .shop__galeria-card-carrusel {
+     width: 240px;
+     height: 320px;
+     img {
+         width: 240px;
+         height: 320px;
+     }
+    }
+ 
+    .shop__galeria-card-info {
+        font-size: 15px;
+        margin-left: 5px;
+    }
+ 
+    .shop__galeria-card-talles {
+        h3 {
+            font-size: 13px;
+            padding: 0 5px;
+        }
+        label {
+            padding: 0 5px;
+        }
+    }
+ 
+    .shop__galeria-card-boton {
+        span {
+            font-size: 12px;
+         padding: 7px 12px;
+         border-radius: 10px;
+        }
+    }
    }
-   
-   .shop__img--inv {   
-       width: 512px;
-       height: 384px;
+
+   @media screen and (max-width: 1090px) {
+    .shop__galeria {
+        height: max-content;
+        margin: 40px auto;
+        column-gap: 30px;
+        row-gap: 40px;
+    }
+ 
+    .shop__galeria-card {
+        width: 360px;
+    }
+ 
+    .shop__galeria-card-carrusel {
+     width: 210px;
+     height: 280px;
+     img {
+         width: 210px;
+         height: 280px;
+     }
+    }
+ 
+    .shop__galeria-card-info {
+        font-size: 13px;
+        margin-left: 5px;
+    }
+ 
+    .shop__galeria-card-talles {
+        h3 {
+            font-size: 12px;
+            padding: 0 5px;
+        }
+        label {
+            padding: 0 5px;
+        }
+    }
+ 
+    .shop__galeria-card-boton {
+        span {
+            font-size: 11px;
+         padding: 7px 12px;
+         border-radius: 10px;
+        }
+    }
    }
-   
+
+   @media screen and (max-width: 855px) {
+    .shop__galeria-card {
+        width: 330px;
+    }
+ 
+    .shop__galeria-card-talles {
+        h3 {
+            font-size: 12px;
+            padding: 0 5px;
+        }
+        label {
+            font-size: 12px;
+            padding: 0 3px;
+        }
+    }
+   }
+
+   @media screen and (max-width: 790px) {
+    .shop__galeria {
+        display: grid;
+        width: 80%;
+        height: max-content;
+        margin: 40px auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        row-gap: 40px;
+        justify-content: center;
+    }
+ 
+    .shop__galeria-card {
+        justify-self: center;
+        width: 500px;
+    }
+ 
+    .shop__galeria-card-carrusel {
+     grid-area: img;
+     width: 285px;
+     height: 380px;
+     img {
+         width: 285px;
+         height: 380px;
+     }
+    }
+
+    .shop__galeria-card-info {
+        font-size: 16px;
+        margin-left: 5px;
+    }
+ 
+ 
+    .shop__galeria-card-talles {
+        h3 {
+            font-size: 15px;
+            padding: 0 5px;
+        }
+        label {
+            font-size: 15px;
+            padding: 0 3px;
+        }
+    }
+
+    .shop__galeria-card-boton {
+        span {
+            font-size: 15px;
+        }
+    }
+   }
+
    @media screen and (max-width: 600px) {
-       .shop__galeria__rem {
-           width: 100%;
-           height: max-content;
-           background-color: $color;
-           padding: 20px 0px;
-           margin-bottom: 40px;
-           display: grid;
-           row-gap: 15px;
-           grid-template-columns: 1fr;
-           grid-template-rows: 1fr 1fr;
-           justify-content: center;
-       }
-   
-       .shop__galeria__pan {
-           @extend .shop__galeria__rem;
-       }
-   
-       .shop__galeria__acc {
-          @extend .shop__galeria__rem;
-           margin-bottom: 10px;
-           display: grid;
-           row-gap: 0px;
-           grid-template-rows: 1fr;
-       }
-   
-       .shop__contenido {
-           width: 90%;
-           display: grid;
-           grid-template-columns: 0.5fr 0.5fr;
-           grid-template-rows: 1fr 0.2fr;
-           grid-template-areas: "img img"
-           "texto boton";
-           height: max-content;
-           justify-content: center;
-           align-items: center;
-           justify-self: center;
-           align-self: center;
-       }
-   
-       .shop__img {
-           grid-area: img;
-           width: 75%;
-           height: 100%;
-           margin-right: 0px;
-       }
-   
-       .shop__img--inv {
-           grid-area: img;
-           width: 100%;
-           height: 75%;
-           margin-right: 0px
-       }
-   
-       .shop__contenido__texto {
-           width: max-content;
-           height: 50px;
-       }
+    .shop__galeria-card {
+        justify-self: center;
+        width: 400px;
+    }
+ 
+    .shop__galeria-card-carrusel {
+     grid-area: img;
+     width: 240px;
+     height: 320px;
+     img {
+         width: 240px;
+         height: 320px;
+     }
+    }
+
+    .shop__galeria-card-info {
+        font-size: 16px;
+        margin-left: 5px;
+    }
+ 
+ 
+    .shop__galeria-card-talles {
+        h3 {
+            font-size: 15px;
+            padding: 0 5px;
+        }
+        label {
+            font-size: 15px;
+            padding: 0 3px;
+        }
+    }
+
+    .shop__galeria-card-boton {
+        span {
+            font-size: 15px;
+        }
+    }
    }
-   
+
+   @media screen and (max-width: 450px) {
+    .shop__galeria-card {
+        justify-self: center;
+        width: 350px;
+    }
+ 
+    .shop__galeria-card-talles {
+        h3 {
+            font-size: 12px;
+            padding: 0 5px;
+        }
+        label {
+            font-size: 12px;
+            padding: 0 3px;
+        }
+    }
+
+    .shop__galeria-card-boton {
+        span {
+            font-size: 12px;
+        }
+    }
+   }
+
+
    /*SHOP*/
    
    /*SOBRE NOSOTROS*/
