@@ -503,192 +503,60 @@
    /*GALERIA*/
    
    .galeria {
-       width: 80%;
        display: grid;
-       grid-template-columns: 1fr 1fr;
-       grid-template-rows: 0.1fr 0.6fr;
-       grid-template-areas: 
-       "tit   tit"
-       "cont cont";
-       height: 650px;
-       margin: 10px;
+       width: 55%;
+       margin: 0 auto;
+       grid-template-columns: repeat(6, 1fr);
+       grid-template-rows: 1fr 1fr 1fr;
+       row-gap: 20px;
+       grid-template-areas: "uno uno uno dos dos dos"
+       "uno uno uno tres tres tres" "uno uno uno tres tres tres";
    }
-   
-   .galeria__titulo {
-       grid-area: tit;
-       width: 100%
+
+   .galeria__img-felix-ave {
+       grid-area: dos;
+       width: 100%;
    }
-   
-   .galeria__categoria {
-       grid-area: cont;
-       display: flex;
-       justify-content: center;
-       background-color: $color;
-       margin: 20px 30px;
-       padding: 20px;
-       width: max-content;
-       height: 100%;
-       padding: 20px;
+
+   .galeria__img-ave {
+       grid-area: uno;
+       width: 75%;
+       justify-self: center;
    }
-   
-   .galeria__categoria__ar {
-       grid-area: cont;
-       display: grid;
-       grid-template-columns: 0.5fr 0.2fr 0.5fr 0.2fr;
-       column-gap: 10px;
-       justify-content: center;
-       background-color: $color;
-       margin: 20px 30px 20px;
-       width: max-content;
-       height: max-content;
-       padding: 20px;
+
+   .galeria__img-patty-cuadrada {
+       grid-area: tres;
+       width: 47%;
+       justify-self: end;
    }
-   
-   .galeria__contenido {
-       display: flex;
-       width: 70%;
-       height: 400px;
-       margin-right: 2%;
-       margin-left: 2%;
-   }
-   
-   .galeria__contenido__ar {
-       @extend .galeria__contenido;
-       height: 512px;
-       margin-left: 2%;
-   }
-   
-   .galeria__contenido__texto {
-       width: 120px;
-       height: 200px;
-       margin-right: 10px;
-   }
-   
-   .galeria__fotos {
-       width: 384px;
-       height: 512px;
-   }
-   
-   .galeria__fotos--inv {
-       width: 512px;
-       height:384px;
-   }
-   
-   .galeria__contenido__insta {
-       width: 30px;
-       height: 30px;
-   }
-   
-   @media screen and (max-width: 600px) {
-       .galeria {
-           grid-template-columns: 1fr;
-           grid-template-rows: 0.1fr 0.6fr 0.6fr;
-           grid-template-areas: 
-           "tit "
-           "cont"
-           "cont";
-           height: max-content;
-           margin: 20px 0px;
-       }
-       
-       .galeria__categoria {
-           flex-wrap: wrap;
-           justify-content: flex-start;
-           margin: 0px;
-           width: 100%;
-           padding: 10px;
-       }
-       
-       .galeria__categoria__ar {
-           grid-template-columns: 1fr;
-           grid-template-rows: 0.1fr 0.1fr 1fr 0.2fr;
-           background-color: $color;
-           margin: 0px 0px;
-       }
-       
-       .galeria__contenido {
-           width: 70%;
-           height: max-content;
-           margin: 0px 0px 20px 0px;
-       }
-       
-       .galeria__contenido__ar {
-           width: 90%;
-           height: max-content;
-           justify-content: center;
-           margin-right: 0px;
-           justify-self: center;
-       }
-       
-       .galeria__contenido__texto {
-           width: 140px;
-           height: max-content;
-           margin: 5px 0px 30px 0px;
-           line-height: 20px;
-       }
-       
-       .galeria__fotos {
-           width: 384px;
-           height: 512px;
-       }
-       
-       .galeria__fotos--inv {
-           width: 512px;
-           height:384px;
-       }
-       
-       .galeria__contenido__insta {
-           width: 25px;
-           height: 25px;
-       }
-   }
-   
-   @media screen and (max-width: 560px) {
-       .galeria {
-           width: 100%;
-       }
-   
-       .galeria__categoria {
-           flex-wrap: wrap;
-           margin: 0px;
-           width: 90%;
-           height: max-content;
-           justify-self: center;
-       }
-       
-       .galeria__categoria__ar {
-           grid-area: cont;
-           display: grid;
-           grid-template-columns: 1fr;
-           grid-template-rows: 1fr 0.1fr 1fr 0.1fr;
-           justify-content: center;
-           background-color: $color;
-           margin: 0px 0px;
-           width: 90%;
-           height: 90%;
-           padding: 10px;
-           align-items: center;
-           justify-self: center;
-       }
-   
-       .galeria__contenido {
-           display: flex;
-           width: 100%;
-           height: max-content;
-           margin: 0px 0px 20px 0px;
-           justify-content: center;
-       }
-   
-       .galeria__fotos--inv {
-           width: 90%;
-           height: 120%;
-       }
-   
-       .galeria__fotos {
-           width: 75%;
-           height: 100%;
-       }
-   }
+
+   .galeria__img-keke-flaneur {
+    grid-area: tres;
+    width: 47.5%;
+    justify-self: start;
+}
+
+.galeria__img-felix-ave2 {
+    grid-area: uno;
+    width: 75%;
+    align-self: end;
+    justify-self: center;
+    margin-bottom: 30px;
+}
+
+.galeria__img-icono-flaneur {
+    grid-area: tres;
+    width: 47%;
+    align-self: end;
+    margin-left: 10px;
+}
+
+.galeria__img-vestido {
+    grid-area: tres;
+    width: 43%;
+    align-self: end;
+    justify-self: end;
+}
    
    /*GALERIA*/
    
