@@ -40,26 +40,48 @@ function ordenarNumeros(arr, valor){
         }
     });
     objOrdenado = obj.sort((a,b) => a-b);
-    let comprobador;
+    let oFiltrados;
     objOrdenado.forEach(elemento => {
         switch(valor) {
             case "precio":
-                comprobador = arrOrdenado.some(e1 => e1 === elemento);
-                arrOrdenado.push(arr.find(e2 => e2.precio === elemento));
+                if(arrOrdenado.some(e1 => e1 === arr.find(e2 => e2.precio === elemento)) === false){
+                    oFiltrados = arr.filter(e2 => e2.precio === elemento);
+                    oFiltrados.forEach(e3 => {
+                        arrOrdenado.push(arr.find(e4 => e4.nombre === e3.nombre));
+                    })
+                }
                 break;
             case "stock":
-                arrOrdenado.push(arr.find(e2 => e2.talles === elemento));
+                if(arrOrdenado.some(e1 => e1 === arr.find(e2 => e2.stock === elemento)) === false){
+                    oFiltrados = arr.filter(e2 => e2.stock === elemento);
+                    oFiltrados.forEach(e3 => {
+                        arrOrdenado.push(arr.find(e4 => e4.nombre === e3.nombre));
+                    })
+                }
                 break;
             case "talles":
-                comprobador = arrOrdenado.some(e1 => e1 === elemento);
-                arrOrdenado.push(arr.find(e2 => e2.talles === elemento));
+                if(arrOrdenado.some(e1 => e1 === arr.find(e2 => e2.talles === elemento)) === false){
+                    let oFiltrados = arr.filter(e2 => e2.talles === elemento);
+                    oFiltrados.forEach(e3 => {
+                        arrOrdenado.push(arr.find(e4 => e4.nombre === e3.nombre));
+                    })
+                }
                 break;
         }
     })
     return arrOrdenado;
 }
 
-const productos = [
+class Producto {
+    constructor(nombre, precio, talles, stock) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.talles = talles;
+        this.stock = stock;
+    }
+}
+
+let productos = [
     {nombre: "remeraCorta", precio: 3000, talles: 3, stock: 3},
     {nombre: "camisaSinMangas", precio: 2500, talles: 3, stock: 3},
     {nombre: "pantalon", precio: 4000, talles: 2, stock: 2},
@@ -70,5 +92,3 @@ let filtroProductosS = filtroString(productos);
 let filtroProductosN = filtroNumero(productos);
 let productosOrdenadosAbc = ordenarAbc(productos);
 let productosOrdenadosCba = productosOrdenadosAbc.reverse();
-
-console.log(ordenarNumeros(productos, "talles"));
