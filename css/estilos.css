@@ -10,10 +10,6 @@
   font-family: bebop2;
   src: url("../assets/fonts/Bookman Bold.ttf");
 }
-@font-face {
-  font-family: cowboy;
-  src: url("../assets/fonts/Cowboys 2.0.otf");
-}
 /*HEADER*/
 .header {
   width: 100%;
@@ -536,9 +532,58 @@
   height: max-content;
   margin: 40px auto;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr 1fr;
+  grid-template-areas: "buscador buscador" ". ." ". .";
   column-gap: 30px;
   row-gap: 40px;
+}
+
+.shop__buscador {
+  grid-area: buscador;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-areas: "ordenador ordenador barra barra barra filtro filtro filtro";
+  column-gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+.shop__buscador .shop__buscador-barra {
+  grid-area: barra;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  justify-self: end;
+}
+.shop__buscador .shop__label-buscador {
+  font-family: bebop;
+  font-size: 1.2rem;
+  margin-right: 1%;
+}
+.shop__buscador .shop__buscador-input {
+  height: 30px;
+  width: 70%;
+}
+.shop__buscador .shop__buscador-ordenador {
+  grid-area: ordenador;
+  justify-self: flex-end;
+}
+.shop__buscador .shop__filtro {
+  grid-area: filtro;
+  display: flex;
+  justify-self: start;
+  justify-content: center;
+  width: 80%;
+}
+.shop__buscador .shop__filtro label {
+  margin-right: 1%;
+  font-family: bebop;
+  align-self: center;
+}
+.shop__buscador .shop__filtro input {
+  width: 45%;
+  align-self: center;
+  height: 25px;
 }
 
 .shop__galeria-card {
@@ -606,6 +651,13 @@
     margin: 40px auto;
     column-gap: 30px;
     row-gap: 40px;
+  }
+
+  .shop__buscador {
+    grid-template-areas: "ordenador ordenador barra barra barra barra filtro filtro";
+  }
+  .shop__buscador .shop__buscador-barra {
+    justify-content: center;
   }
 
   .shop__galeria-card {
@@ -677,6 +729,14 @@
   }
 }
 @media screen and (max-width: 855px) {
+  .shop__buscador .shop__filtro {
+    width: 100%;
+  }
+  .shop__buscador .shop__filtro input {
+    height: 20px;
+    font-size: 1rem;
+  }
+
   .shop__galeria-card {
     width: 330px;
   }
@@ -695,11 +755,34 @@
     display: grid;
     width: 80%;
     height: max-content;
-    margin: 40px auto;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    row-gap: 40px;
+    grid-template-rows: 0.1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "buscador" "." "." "." ".";
+    column-gap: 0px;
     justify-content: center;
+  }
+
+  .shop__buscador {
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "barra barra barra barra" "ordenador ordenador filtro filtro";
+    row-gap: 20px;
+  }
+  .shop__buscador .shop__buscador-barra {
+    width: 100%;
+    justify-self: center;
+  }
+  .shop__buscador .shop__buscador-input {
+    height: 25px;
+    align-self: center;
+    width: 70%;
+  }
+  .shop__buscador .shop__buscador-ordenador {
+    justify-self: center;
+  }
+  .shop__buscador .shop__filtro {
+    width: 80%;
   }
 
   .shop__galeria-card {
@@ -771,6 +854,10 @@
   }
 }
 @media screen and (max-width: 450px) {
+  .shop__buscador .shop__filtro {
+    width: 90%;
+  }
+
   .shop__galeria-card {
     justify-self: center;
     width: 350px;

@@ -59,6 +59,26 @@
     <main>
         <h1 class="title">SHOP</h1>
         <section class="shop__galeria">
+          <article class="shop__buscador">
+            <div class="shop__buscador-barra">
+              <label for="buscador" class="shop__label-buscador">Buscar: </label>
+              <input type="search" name="buscador" placeholder="Busque un producto" class="shop__buscador-input">
+            </div>
+            <div class="shop__filtro">
+              <label for="filtro">Filtrado $: </label>
+              <input type="number" name="filtro" min="100" max="12000">
+            </div>
+            <div class="dropdown shop__buscador-ordenador">
+              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Ordenar por :
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Menor precio</a></li>
+                <li><a class="dropdown-item" href="#">Mayor precio</a></li>
+                <li><a class="dropdown-item" href="#">Orden original</a></li>
+              </ul>
+            </div>
+          </article>
             <article class="shop__galeria-card">
                 <div id="carouselExampleControlsNoTouching" class="carousel slide shop__galeria-card-carrusel" data-bs-touch="false" data-bs-interval="false">
                     <div class="carousel-inner">
