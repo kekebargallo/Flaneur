@@ -72,18 +72,16 @@ function ordenarNumeros(arr, valor){
     return arrOrdenado;
 }
 
-class Producto {
-    constructor(nombre, precio, talles, stock) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.talles = talles;
-        this.stock = stock;
-    }
+let producto = (n, p, t, s) => {
+    let nuevoProducto = {nombre: n, precio: p, talles: t, stock: s};
+    return nuevoProducto;
 }
 
+
+
 let productos = [
-    {nombre: "remeraCorta", precio: 3000, talles: 3, stock: 3},
-    {nombre: "camisaSinMangas", precio: 2500, talles: 3, stock: 3},
+    {nombre: "remera corta", precio: 3000, talles: 3, stock: 3},
+    {nombre: "camisa sin mangas", precio: 2500, talles: 3, stock: 3},
     {nombre: "pantalon", precio: 4000, talles: 2, stock: 2},
     {nombre: "cinturon", precio: 1200, talles: 1, stock: 3}
 ];
@@ -92,3 +90,12 @@ let filtroProductosS = filtroString(productos);
 let filtroProductosN = filtroNumero(productos);
 let productosOrdenadosAbc = ordenarAbc(productos);
 let productosOrdenadosCba = productosOrdenadosAbc.reverse();
+
+console.log("Productos: ", productos);
+
+let info = prompt("Seleccione un producto para recibir información.");
+
+if(productos.some(elemento => elemento.nombre.toLowerCase() === info.toLowerCase())){
+    let infoProducto = productos.find(elemento => elemento.nombre.toLowerCase() === info.toLowerCase());
+    console.log(`El producto ${infoProducto.nombre} tiene un precio de $${infoProducto.precio}, ${infoProducto.talles} talle/s y hay ${infoProducto.stock} en stock.` )
+}

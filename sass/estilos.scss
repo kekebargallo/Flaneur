@@ -196,6 +196,7 @@
        margin: 40px auto;
        h2 {
          grid-area: tit;
+         font-family: bebop;
        }
    }
 
@@ -227,6 +228,7 @@
          display: flex;
          grid-area: tit;
          justify-self: start;
+         font-family: bebop;
        }
    }
 
@@ -633,7 +635,7 @@
         width: 80%;
         label {
             margin-right: 1%;
-            font-family: bebop;
+            font-family: bebop2;
             align-self: center;
         }
         input {
@@ -668,7 +670,7 @@
        margin-left: 5px;
        align-self: center;
        font-size: 1.2rem;
-       font-family: bebop;
+       font-family: bebop2;
    }
 
    .shop__galeria-card-talles {
@@ -676,11 +678,11 @@
        h3 {
            font-size: 1.2rem;
            padding: 0 5px;
-           font-family: bebop;
+           font-family: bebop2;
        }
        label {
            padding: 0 5px;
-           font-family: bebop;
+           font-family: bebop2;
        }
    }
 
@@ -1116,6 +1118,7 @@
        display: flex;
        margin: 0 auto;
        justify-content: start;
+       font-family: bebop;
    }
    
    .contacto__form {
@@ -1165,6 +1168,7 @@
 
    .contacto__form__b {
        padding: 10px;
+       font-family: bebop2;
    }
 
    @media screen and (max-width: 1000px) {

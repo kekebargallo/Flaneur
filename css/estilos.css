@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: bebop;
-  src: url("../assets/fonts/Bookman Bold.ttf Condensed Bold.ttf");
+  src: url("../assets/fonts/Cheltenham Condensed Bold.ttf");
 }
 @font-face {
   font-family: bebop2;
@@ -171,6 +171,7 @@
 }
 .index__galeria__uno h2 {
   grid-area: tit;
+  font-family: bebop;
 }
 
 .index__g-galeria-uno {
@@ -201,6 +202,7 @@
   display: flex;
   grid-area: tit;
   justify-self: start;
+  font-family: bebop;
 }
 
 .index__g-galeria-dos {
@@ -577,7 +579,7 @@
 }
 .shop__buscador .shop__filtro label {
   margin-right: 1%;
-  font-family: bebop;
+  font-family: bebop2;
   align-self: center;
 }
 .shop__buscador .shop__filtro input {
@@ -609,7 +611,7 @@
   margin-left: 5px;
   align-self: center;
   font-size: 1.2rem;
-  font-family: bebop;
+  font-family: bebop2;
 }
 
 .shop__galeria-card-talles {
@@ -618,11 +620,11 @@
 .shop__galeria-card-talles h3 {
   font-size: 1.2rem;
   padding: 0 5px;
-  font-family: bebop;
+  font-family: bebop2;
 }
 .shop__galeria-card-talles label {
   padding: 0 5px;
-  font-family: bebop;
+  font-family: bebop2;
 }
 
 .shop__galeria-card-boton {
@@ -998,6 +1000,7 @@
   display: flex;
   margin: 0 auto;
   justify-content: start;
+  font-family: bebop;
 }
 
 .contacto__form {
@@ -1045,6 +1048,7 @@
 
 .contacto__form__b {
   padding: 10px;
+  font-family: bebop2;
 }
 
 @media screen and (max-width: 1000px) {
