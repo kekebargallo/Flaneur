@@ -69,64 +69,26 @@ let producto = (n, p, t, s) => {
     return nuevoProducto;
 }
 
-const filtroString = (e) => {
+const filtro = (e) => {
     let productosFiltrados = [];
+    localStorage.setItem("productosLS", JSON.stringify(productos));
     let productosLS = JSON.parse(localStorage.getItem("productosLS"));
     if(e.key === "Enter"){
         if(shopFiltro.value != ""){
-            if (shopBuscador.value != ""){
-                productosLS.forEach(elemento => {
-                    elemento.nombre.toLowerCase().includes(shopBuscador.value.toLowerCase()) && productosFiltrados.push(elemento);
-                });
-                localStorage.setItem("productosLS", JSON.stringify(productosFiltrados));
-                productosLS = JSON.parse(localStorage.getItem("productosLS"));
-                cargarProductos(productosLS);
-            }else{
-                localStorage.setItem("productosLS", JSON.stringify(productos));
-                productosLS = JSON.parse(localStorage.getItem("productosLS"));
-                cargarProductos(productosLS);
-            };
+            let productosFiltrados2 = [];
+            productosLS.forEach(elemento => {
+                elemento.nombre.toLowerCase().includes(shopBuscador.value.toLowerCase()) && productosFiltrados.push(elemento);
+            });
+            productosFiltrados.forEach(elemento => {
+                elemento.precio <= shopFiltro.value && productosFiltrados2.push(elemento);
+                productosFiltrados = productosFiltrados2;
+            });
+            localStorage.setItem("productosLS", JSON.stringify(productosFiltrados));
+            productosLS = JSON.parse(localStorage.getItem("productosLS"));
+            cargarProductos(productosLS);
         }else{
-            if (shopBuscador.value != ""){
-                productos.forEach(elemento => {
-                    elemento.nombre.toLowerCase().includes(shopBuscador.value.toLowerCase()) && productosFiltrados.push(elemento);
-                });
-                localStorage.setItem("productosLS", JSON.stringify(productosFiltrados));
-                let productosLS = JSON.parse(localStorage.getItem("productosLS"));
-                cargarProductos(productosLS);
-            }else{
-                localStorage.setItem("productosLS", JSON.stringify(productos));
-                let productosLS = JSON.parse(localStorage.getItem("productosLS"));
-                cargarProductos(productosLS);
-            };
-        }
-    };
-};
-
-const filtroNumero = (e) => {
-    let productosFiltrados = [];
-    let productosLS = JSON.parse(localStorage.getItem("productosLS"));
-    if(e.key === "Enter"){
-        if(shopBuscador.value != ""){
-            if (shopFiltro.value != "") {
-                productosLS.forEach(elemento => {
-                    elemento.precio <= shopFiltro.value && productosFiltrados.push(elemento);
-                });
-                localStorage.setItem("productosLS", JSON.stringify(productosFiltrados));
-                productosLS = JSON.parse(localStorage.getItem("productosLS"));
-                cargarProductos(productosLS);
-            }else{
-                localStorage.setItem("productosLS", JSON.stringify(productos));
-                productosLS = JSON.parse(localStorage.getItem("productosLS"));
-                cargarProductos(productosLS);
-            };
-        }else{
-            productos.forEach(elemento => {
-                if (shopFiltro.value != "") {
-                    elemento.precio <= shopFiltro.value && productosFiltrados.push(elemento);
-                }else{
-                    productosFiltrados.push(elemento);
-                };
+            productosLS.forEach(elemento => {
+                elemento.nombre.toLowerCase().includes(shopBuscador.value.toLowerCase()) && productosFiltrados.push(elemento);
             });
             localStorage.setItem("productosLS", JSON.stringify(productosFiltrados));
             productosLS = JSON.parse(localStorage.getItem("productosLS"));
@@ -146,9 +108,9 @@ localStorage.setItem("productosLS", JSON.stringify(productos));
 
 const shopGaleria = document.getElementById("shopGaleria");
 const shopBuscador = document.getElementById("shopBuscador");
-shopBuscador.addEventListener("keydown", filtroString);
+shopBuscador.addEventListener("keydown", filtro);
 const shopFiltro = document.getElementById("shopFiltro");
-shopFiltro.addEventListener("keydown", filtroNumero);
+shopFiltro.addEventListener("keydown", filtro);
 
 const cargarProductos = (arr) => {
     shopGaleria.innerHTML = "";
