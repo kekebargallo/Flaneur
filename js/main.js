@@ -16,22 +16,19 @@ function ordenarNumeros(arr, valor){
     let obj = [];
     let arrOrdenado = [];
     arr.forEach((elemento) => {
+        let {precio, stock} = elemento;
         switch(valor) {
             case "precio":
-                nuevoElemento = elemento.precio;
+                nuevoElemento = precio;
                 obj.push(nuevoElemento);
                 break;
             case "stock":
-                nuevoElemento = elemento.stock;
-                obj.push(nuevoElemento);
-                break;
-            case "talles":
-                nuevoElemento = elemento.talles;
+                nuevoElemento = stock;
                 obj.push(nuevoElemento);
                 break;
         }
     });
-    objOrdenado = obj.sort((a,b) => a-b);
+    objOrdenado = obj.sort((a,b) => b-a);
     let oFiltrados;
     objOrdenado.forEach(elemento => {
         switch(valor) {
@@ -51,20 +48,12 @@ function ordenarNumeros(arr, valor){
                     })
                 }
                 break;
-            case "talles":
-                if(arrOrdenado.some(e1 => e1 === arr.find(e2 => e2.talles === elemento)) === false){
-                    let oFiltrados = arr.filter(e2 => e2.talles === elemento);
-                    oFiltrados.forEach(e3 => {
-                        arrOrdenado.push(arr.find(e4 => e4.nombre === e3.nombre));
-                    })
-                }
-                break;
         }
     })
     return arrOrdenado;
 }
 
-let producto = (n, p, t, s) => {
+const producto = (n, p, t, s) => {
     let nuevoProducto = {nombre: n, precio: p, talles: t, stock: s};
     return nuevoProducto;
 }
@@ -97,6 +86,24 @@ const filtro = (e) => {
     }
 }
 
+const menorPrecio = () => {
+    let productosLS = JSON.parse(localStorage.getItem("productosLS"));
+    let arrOrdenado = ordenarNumeros(productosLS, "precio");
+    cargarProductos(arrOrdenado.reverse());
+};
+
+const mayorPrecio = () => {
+    let productosLS = JSON.parse(localStorage.getItem("productosLS"));
+    let arrOrdenado = ordenarNumeros(productosLS, "precio");
+    cargarProductos(arrOrdenado);
+};
+
+const restaurarOrden = () => {
+    let productosLS = JSON.parse(localStorage.getItem("productosLS"));
+    cargarProductos(productosLS);
+};
+
+
 const productos = [
     {id: "remCorta", nombre: "Remera corta estampada", precio: 3000, stock: 3, img: {primeraImg: "../assets/img/rem-patty-maniqui-frontal.jpg", segundaImg: "../assets/img/rem-patty-maniqui-atras.jpeg", terceraImg: "../assets/img/rem-patty-cruda.jpeg", imgCuadrada: "..assets/img/rem-patty-maniqui-encuadrada.jpeg"}},
     {id: "camisa", nombre: "Camisa sin mangas", precio: 2500, stock: 3, img: {primeraImg: "../assets/img/camisa-maniqui-frontal.jpeg", segundaImg: "../assets/img/camisa-cruda-atras.jpeg", terceraImg: "../assets/img/camisa-cruda.jpg", imgCuadrada: "..assets/img/camisa-maniqui-frontal-encuadrada.jpg"}},
@@ -111,6 +118,13 @@ const shopBuscador = document.getElementById("shopBuscador");
 shopBuscador.addEventListener("keydown", filtro);
 const shopFiltro = document.getElementById("shopFiltro");
 shopFiltro.addEventListener("keydown", filtro);
+const menorPrecioShop = document.getElementById("menorPrecioShop");
+menorPrecioShop.addEventListener("mouseup", menorPrecio);
+const mayorPrecioShop = document.getElementById("mayorPrecioShop");
+mayorPrecioShop.addEventListener("mouseup", mayorPrecio);
+const restaurarOrdenShop = document.getElementById("restaurarOrdenShop");
+restaurarOrdenShop.addEventListener("mouseup", restaurarOrden);
+
 
 const cargarProductos = (arr) => {
     shopGaleria.innerHTML = "";
