@@ -1,15 +1,5 @@
-const fetchData = async () =>{
-    try{
-        const res = await fetch ('data.json')
-        const data = await res.json()
-        printCards(data)
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-
-
-const printCards = data =>{
-    console.log(data)
-}
+fetch("./data.json")
+.then(response => response.json())
+.then(data => {
+    console.log(data);
+});
