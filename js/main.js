@@ -128,82 +128,88 @@ const agregarAlCarrito = () => {
       })
 }
 
+const fetchData = async () =>{
+    try {
+        const res = await fetch('https://jsonblob.com/api/jsonBlob/1005217757264101376');
+        const productos = await res.json();
 
-const productos = [
-    {id: "remCorta", nombre: "Remera corta estampada", precio: 3000, stock: 3, img: {primeraImg: "../assets/img/rem-patty-maniqui-frontal.jpg", segundaImg: "../assets/img/rem-patty-maniqui-atras.jpeg", terceraImg: "../assets/img/rem-patty-cruda.jpeg", imgCuadrada: "..assets/img/rem-patty-maniqui-encuadrada.jpeg"}},
-    {id: "camisa", nombre: "Camisa sin mangas", precio: 2500, stock: 3, img: {primeraImg: "../assets/img/camisa-maniqui-frontal.jpeg", segundaImg: "../assets/img/camisa-cruda-atras.jpeg", terceraImg: "../assets/img/camisa-cruda.jpg", imgCuadrada: "..assets/img/camisa-maniqui-frontal-encuadrada.jpg"}},
-    {id: "pantalon", nombre: "Pantalon Flaneur", precio: 4000, stock: 2, img: {primeraImg: "../assets/img/pantalon-maniqui-frontal.jpeg", segundaImg: "../assets/img/pantalon-maniqui-atras.jpeg", terceraImg: "../assets/img/pantalon-crudo-frontal.jpg", imgCuadrada: "..assets/img/pantalon-maniqui-frontal-encuadrado.jpeg"}},
-    {id: "cinturon", nombre: "Cinturon Flaneur", precio: 1200, stock: 3, img: {primeraImg: "../assets/img/cinturon-maniqui-frontal.jpg", segundaImg: "../assets/img/cinturon-crudo.jpg", terceraImg: "../assets/img/cinturon-maniqui-frontal.jpg", imgCuadrada: "..assets/img/cinturon-maniqui-encuadrada.jpeg"}}
-];
+        localStorage.setItem("productosLS", JSON.stringify(productos));
 
-localStorage.setItem("productosLS", JSON.stringify(productos));
-let productosLS = JSON.parse(localStorage.getItem("productosLS"))
+        let productosLS = JSON.parse(localStorage.getItem("productosLS"))
 
-const shopGaleria = document.getElementById("shopGaleria");
-const shopBuscador = document.getElementById("shopBuscador");
-shopBuscador.addEventListener("keydown", filtro);
+        const shopGaleria = document.getElementById("shopGaleria");
+        const shopBuscador = document.getElementById("shopBuscador");
+        shopBuscador.addEventListener("keydown", filtro);
 
-const shopFiltro = document.getElementById("shopFiltro");
-shopFiltro.addEventListener("keydown", filtro);
+        const shopFiltro = document.getElementById("shopFiltro");
+        shopFiltro.addEventListener("keydown", filtro);
 
-const menorPrecioShop = document.getElementById("menorPrecioShop");
-menorPrecioShop.addEventListener("mouseup", menorPrecio);
+        const menorPrecioShop = document.getElementById("menorPrecioShop");
+        menorPrecioShop.addEventListener("mouseup", menorPrecio);
 
-const mayorPrecioShop = document.getElementById("mayorPrecioShop");
-mayorPrecioShop.addEventListener("mouseup", mayorPrecio);
+        const mayorPrecioShop = document.getElementById("mayorPrecioShop");
+        mayorPrecioShop.addEventListener("mouseup", mayorPrecio);
 
-const restaurarOrdenShop = document.getElementById("restaurarOrdenShop");
-restaurarOrdenShop.addEventListener("mouseup", restaurarOrden);
+        const restaurarOrdenShop = document.getElementById("restaurarOrdenShop");
+        restaurarOrdenShop.addEventListener("mouseup", restaurarOrden);
 
-const cargarProductos = (arr) => {
-    shopGaleria.innerHTML = "";
-    arr.forEach(elemento => {
-        let {nombre, id, precio, img: {primeraImg, segundaImg, terceraImg}} = elemento;
-        let card = document.createElement("article");
-        card.setAttribute("class", "shop__galeria-card");
-        card.innerHTML = `<div id="carouselExampleControlsNoTouching${elemento.id}" class="carousel slide shop__galeria-card-carrusel" data-bs-touch="false" data-bs-interval="false">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="${primeraImg}" class="d-block w-100" alt=${nombre}>
+        const cargarProductos = (arr) => {
+            shopGaleria.innerHTML = "";
+            arr.forEach(elemento => {
+                let {nombre, id, precio, img: {primeraImg, segundaImg, terceraImg}} = elemento;
+                let card = document.createElement("article");
+                card.setAttribute("class", "shop__galeria-card");
+                card.innerHTML = `<div id="carouselExampleControlsNoTouching${elemento.id}" class="carousel slide shop__galeria-card-carrusel" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="${primeraImg}" class="d-block w-100" alt=${nombre}>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="${segundaImg}" class="d-block w-100" alt=${nombre}>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="${terceraImg}" class="d-block w-100" alt="${nombre}">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching${id}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching${id}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div class="carousel-item">
-                    <img src="${segundaImg}" class="d-block w-100" alt=${nombre}>
+                <p class="shop__galeria-card-info">${nombre}<br>${precio}$</p>
+                <div class="shop__galeria-card-talles">
+                    <h3>talle:</h3>
+                    <label>S <input type="radio" name="talle" value="small"></label>
+                    <label>M <input type="radio" name="talle" value="medium"></label>
+                    <label>L <input type="radio" name="talle" value="large"></label>
                 </div>
-                <div class="carousel-item">
-                    <img src="${terceraImg}" class="d-block w-100" alt="${nombre}">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching${id}" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching${id}" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <p class="shop__galeria-card-info">${nombre}<br>${precio}$</p>
-        <div class="shop__galeria-card-talles">
-            <h3>talle:</h3>
-            <label>S <input type="radio" name="talle" value="small"></label>
-            <label>M <input type="radio" name="talle" value="medium"></label>
-            <label>L <input type="radio" name="talle" value="large"></label>
-        </div>
-        <a class="shop__galeria-card-boton" id="comprar_${id}"><span>COMPRAR</span></a>`
-    shopGaleria.appendChild(card);
-    })
-};
+                <a class="shop__galeria-card-boton" id="comprar_${id}"><span>COMPRAR</span></a>`
+            shopGaleria.appendChild(card);
+            })
+        };
 
-cargarProductos(productosLS);
+        cargarProductos(productosLS);
 
-let comprarRemBtn = document.getElementById("comprar_remCorta");
-comprarRemBtn.addEventListener("mouseup", agregarAlCarrito);
+        let comprarRemBtn = document.getElementById("comprar_remCorta");
+        comprarRemBtn.addEventListener("mouseup", agregarAlCarrito);
 
-let comprarCamisaBtn = document.getElementById("comprar_camisa");
-comprarCamisaBtn.addEventListener("mouseup", agregarAlCarrito);
+        let comprarCamisaBtn = document.getElementById("comprar_camisa");
+        comprarCamisaBtn.addEventListener("mouseup", agregarAlCarrito);
 
-let comprarPantalonBtn = document.getElementById("comprar_pantalon");
-comprarPantalonBtn.addEventListener("mouseup", agregarAlCarrito);
+        let comprarPantalonBtn = document.getElementById("comprar_pantalon");
+        comprarPantalonBtn.addEventListener("mouseup", agregarAlCarrito);
 
-let comprarCinturonBtn = document.getElementById("comprar_cinturon");
-comprarCinturonBtn.addEventListener("mouseup", agregarAlCarrito);
+        let comprarCinturonBtn = document.getElementById("comprar_cinturon");
+        comprarCinturonBtn.addEventListener("mouseup", agregarAlCarrito);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+fetchData();
+
+
