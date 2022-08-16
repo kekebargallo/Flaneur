@@ -63,7 +63,7 @@
   font-family: alicia;
   transition: 0.3s;
 }
-.header__nav__list li:hover a {
+.header__nav__list li a:hover {
   color: white;
 }
 
@@ -1102,10 +1102,47 @@
 }
 /*CONTACTO*/
 /*CARRITO*/
-.carrito {
+.sinProductos {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+}
+
+/* .carrito{
+
+} */
+.sinCarritoContainer {
+  width: max-content;
+  margin: 0 auto;
+  height: 300px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: "texto" "texto" "." "link";
+}
+.sinCarritoContainer h2 {
+  grid-area: texto;
+  font-size: 4rem;
+  font-family: bebop;
+  margin-top: 30px;
+  align-self: center;
+  justify-self: center;
+  text-decoration: underline 4px;
+}
+.sinCarritoContainer a {
+  font-family: bebop;
+  text-decoration: none;
+  color: black;
+  grid-area: link;
+  align-self: end;
+  font-size: 3rem;
+  justify-self: center;
+  padding: 5px 20px;
+  background-color: rgb(216, 216, 216);
+  border-radius: 12px;
+  transition: 0.3s;
+}
+.sinCarritoContainer a:hover {
+  color: rgb(255, 255, 255);
 }
 
 /*FOOTER*/
