@@ -1237,9 +1237,81 @@
     width: 100%;
    }
 
-   /* .carrito{
+   .carrito{
+    width: 80%;
+    display: grid;
+    margin: 0 auto;
+    margin-top: 30px;
+    row-gap: 20px;
+   }
+
+   .cardCarrito{
+    display: grid;
+    height: 220px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "img img tit tit tit shop precio precio"
+    "img img . quitar quitar shop precio precio";
+    align-items: center;
+    justify-items: center;
+    background-color: rgb(216, 216, 216);
+        .cardCarritoImg{
+            grid-area: img;
+            height: 100%;
+            display: flex;
+            img{
+                height: 90%;
+                align-self: center;
+            }
+        }
+        .cardCarritoTexto{
+            grid-area: tit;
+            justify-self: start;
+        }
+        .cardCarritoPrecio{
+            grid-area: precio;
+            p{
+                display: flex;
+                margin: 0 auto;
+                font-family: bebop;
+                font-size: 2rem;
+            }
+        }
+        .cardCarritoBotonQuitar{
+            grid-area: quitar;
+            width: max-content;
+            align-self: end;
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+            background-color: rgba(145, 145, 145, 0.63);
+            margin-bottom: 3px;
+            border-radius: 12px;
+            transition: 0.3s;
+            span{
+                font-family: bebop;
+            }
+            &:hover{
+                color: white;
+                background-color: rgb(31, 31, 31);
+            }
+        }
+        .cardCarritoBotonShop{
+            @extend .cardCarritoBotonQuitar;
+            grid-area: shop;
+            align-self: center;
+            justify-self: end;
+            padding: 20px 5px;
+            background-color: rgba(0, 0, 0, 0.945);
+            opacity: 0.8;
+            color: white;
+            &:hover{
+                opacity: 1;
+            }
+        }
+        
     
-   } */
+   }
 
     .sinCarritoContainer{
     width: max-content;
@@ -1266,13 +1338,53 @@
             font-size: 3rem;
             justify-self: center;
             padding: 5px 20px;
-            background-color: rgb(216, 216, 216);;
+            background-color: rgb(216, 216, 216);
             border-radius: 12px;
             transition: 0.3s;
             &:hover{
                 color: rgb(255, 255, 255);
+                background-color: rgb(63, 63, 63);
             }
         }
+    }
+
+    .carritoTerminarCompra {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-areas: "botonBorrar botonBorrar . . . . boton boton precio precio";
+        align-items: center;
+        #terminarCompraBoton{
+            display: flex;
+            grid-area: boton;
+            text-decoration: none;
+            color: black;
+            font-family: bebop;
+            padding: 10px 10px;
+            background-color: rgb(216, 216, 216);
+            border-radius: 12px;
+            justify-self: center;
+            transition: 0.3s;
+            &:hover{
+                color: rgb(252, 252, 252);
+                background-color: rgb(63, 63, 63);
+            } 
+        }
+        #borrarCarritoBoton{
+            @extend #terminarCompraBoton;
+            grid-area: botonBorrar;
+            justify-self: start;
+        }
+        p{
+            grid-area: precio;
+            display: flex;
+            font-family: bebop;
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+    }
+
+    .noDisplay {
+        display: none;
     }
    
    /*FOOTER*/

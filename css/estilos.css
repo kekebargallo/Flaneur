@@ -1108,9 +1108,78 @@
   width: 100%;
 }
 
-/* .carrito{
+.carrito {
+  width: 80%;
+  display: grid;
+  margin: 0 auto;
+  margin-top: 30px;
+  row-gap: 20px;
+}
 
-} */
+.cardCarrito {
+  display: grid;
+  height: 220px;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "img img tit tit tit shop precio precio" "img img . quitar quitar shop precio precio";
+  align-items: center;
+  justify-items: center;
+  background-color: rgb(216, 216, 216);
+}
+.cardCarrito .cardCarritoImg {
+  grid-area: img;
+  height: 100%;
+  display: flex;
+}
+.cardCarrito .cardCarritoImg img {
+  height: 90%;
+  align-self: center;
+}
+.cardCarrito .cardCarritoTexto {
+  grid-area: tit;
+  justify-self: start;
+}
+.cardCarrito .cardCarritoPrecio {
+  grid-area: precio;
+}
+.cardCarrito .cardCarritoPrecio p {
+  display: flex;
+  margin: 0 auto;
+  font-family: bebop;
+  font-size: 2rem;
+}
+.cardCarrito .cardCarritoBotonQuitar, .cardCarrito .cardCarritoBotonShop {
+  grid-area: quitar;
+  width: max-content;
+  align-self: end;
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  background-color: rgba(145, 145, 145, 0.63);
+  margin-bottom: 3px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+.cardCarrito .cardCarritoBotonQuitar span, .cardCarrito .cardCarritoBotonShop span {
+  font-family: bebop;
+}
+.cardCarrito .cardCarritoBotonQuitar:hover, .cardCarrito .cardCarritoBotonShop:hover {
+  color: white;
+  background-color: rgb(31, 31, 31);
+}
+.cardCarrito .cardCarritoBotonShop {
+  grid-area: shop;
+  align-self: center;
+  justify-self: end;
+  padding: 20px 5px;
+  background-color: rgba(0, 0, 0, 0.945);
+  opacity: 0.8;
+  color: white;
+}
+.cardCarrito .cardCarritoBotonShop:hover {
+  opacity: 1;
+}
+
 .sinCarritoContainer {
   width: max-content;
   margin: 0 auto;
@@ -1143,6 +1212,45 @@
 }
 .sinCarritoContainer a:hover {
   color: rgb(255, 255, 255);
+  background-color: rgb(63, 63, 63);
+}
+
+.carritoTerminarCompra {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-areas: "botonBorrar botonBorrar . . . . boton boton precio precio";
+  align-items: center;
+}
+.carritoTerminarCompra #terminarCompraBoton, .carritoTerminarCompra #borrarCarritoBoton {
+  display: flex;
+  grid-area: boton;
+  text-decoration: none;
+  color: black;
+  font-family: bebop;
+  padding: 10px 10px;
+  background-color: rgb(216, 216, 216);
+  border-radius: 12px;
+  justify-self: center;
+  transition: 0.3s;
+}
+.carritoTerminarCompra #terminarCompraBoton:hover, .carritoTerminarCompra #borrarCarritoBoton:hover {
+  color: rgb(252, 252, 252);
+  background-color: rgb(63, 63, 63);
+}
+.carritoTerminarCompra #borrarCarritoBoton {
+  grid-area: botonBorrar;
+  justify-self: start;
+}
+.carritoTerminarCompra p {
+  grid-area: precio;
+  display: flex;
+  font-family: bebop;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.noDisplay {
+  display: none;
 }
 
 /*FOOTER*/

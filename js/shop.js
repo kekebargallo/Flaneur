@@ -1,7 +1,7 @@
 function ordenarAbc(arr){
     let obj = [];
     let arrOrdenado = [];
-    arr.forEach((elemento) => {
+    arr.forEach(elemento => {
         nuevoElemento = elemento.nombre;
         obj.push(nuevoElemento);
     });
@@ -226,7 +226,7 @@ let productosLS = JSON.parse(localStorage.getItem("productosLS"));
 
 const fetchData = async () =>{
     try {
-        const res = await fetch('https://jsonblob.com/api/jsonBlob/1005217757264101376');
+        const res = await fetch('http://jsonblob.com/api/jsonblob/1009179080696020992');
         productos = await res.json();
 
         localStorage.setItem("productosLS", JSON.stringify(productos));
