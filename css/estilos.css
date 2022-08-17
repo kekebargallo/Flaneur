@@ -1253,6 +1253,171 @@
   display: none;
 }
 
+@media screen and (max-width: 1030px) {
+  .cardCarrito {
+    height: 180px;
+  }
+  .cardCarrito .cardCarritoPrecio p {
+    font-size: 1.8rem;
+  }
+  .cardCarrito .cardCarritoBotonShop {
+    padding: 14px 5px;
+  }
+
+  .carritoTerminarCompra {
+    grid-template-areas: "botonBorrar botonBorrar botonBorrar . boton boton boton precio precio precio";
+  }
+  .carritoTerminarCompra #terminarCompraBoton, .carritoTerminarCompra #borrarCarritoBoton {
+    padding: 6px 8px;
+    background-color: rgb(216, 216, 216);
+    border-radius: 12px;
+    justify-self: center;
+    transition: 0.3s;
+  }
+  .carritoTerminarCompra #terminarCompraBoton:hover, .carritoTerminarCompra #borrarCarritoBoton:hover {
+    color: rgb(252, 252, 252);
+    background-color: rgb(63, 63, 63);
+  }
+  .carritoTerminarCompra #borrarCarritoBoton {
+    justify-self: start;
+  }
+  .carritoTerminarCompra p {
+    grid-area: precio;
+    display: flex;
+    font-family: bebop;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 870px) {
+  .cardCarrito {
+    height: 150px;
+  }
+  .cardCarrito .cardCarritoPrecio p {
+    font-size: 1.7rem;
+  }
+  .cardCarrito .cardCarritoBotonQuitar, .cardCarrito .cardCarritoBotonShop {
+    grid-area: quitar;
+    width: max-content;
+    align-self: end;
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    background-color: rgba(145, 145, 145, 0.63);
+    margin-bottom: 3px;
+    border-radius: 12px;
+    transition: 0.3s;
+  }
+  .cardCarrito .cardCarritoBotonQuitar span, .cardCarrito .cardCarritoBotonShop span {
+    font-family: bebop;
+    font-size: 0.9rem;
+  }
+  .cardCarrito .cardCarritoBotonQuitar:hover, .cardCarrito .cardCarritoBotonShop:hover {
+    color: white;
+    background-color: rgb(31, 31, 31);
+  }
+  .cardCarrito .cardCarritoBotonShop {
+    grid-area: shop;
+    align-self: center;
+    justify-self: end;
+    padding: 15px 5px;
+    background-color: rgba(0, 0, 0, 0.945);
+    opacity: 0.8;
+    color: white;
+  }
+  .cardCarrito .cardCarritoBotonShop span {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 740px) {
+  .carrito {
+    width: 95%;
+  }
+
+  .cardCarrito {
+    height: 140px;
+  }
+  .cardCarrito .cardCarritoImg {
+    grid-area: img;
+    height: 100%;
+    display: flex;
+  }
+  .cardCarrito .cardCarritoImg img {
+    height: 80%;
+    align-self: center;
+  }
+  .cardCarrito .cardCarritoTexto {
+    grid-area: tit;
+    justify-self: start;
+  }
+  .cardCarrito .cardCarritoTexto h3 {
+    font-size: 1.3rem;
+  }
+
+  .carritoTerminarCompra {
+    grid-template-areas: "botonBorrar botonBorrar botonBorrar boton boton boton boton precio precio precio";
+  }
+}
+@media screen and (max-width: 540px) {
+  .cardCarrito {
+    height: 120px;
+    grid-template-areas: "img img tit tit tit shop shop shop" "img img . quitar quitar precio precio precio";
+  }
+  .cardCarrito .cardCarritoTexto h3 {
+    font-size: 1.1rem;
+  }
+  .cardCarrito .cardCarritoPrecio p {
+    font-size: 1.6rem;
+  }
+  .cardCarrito .cardCarritoBotonShop {
+    padding: 10px 5px;
+    align-self: end;
+    justify-self: center;
+  }
+  .cardCarrito .cardCarritoBotonShop span {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 460px) {
+  .cardCarrito {
+    height: 90px;
+  }
+  .cardCarrito .cardCarritoPrecio {
+    grid-area: precio;
+  }
+  .cardCarrito .cardCarritoPrecio p {
+    display: flex;
+    margin: 0 auto;
+    font-family: bebop;
+    font-size: 1.4rem;
+  }
+  .cardCarrito .cardCarritoBotonShop {
+    padding: 6px 5px;
+  }
+  .cardCarrito .cardCarritoBotonShop span {
+    font-size: 0.8rem;
+  }
+
+  .carritoTerminarCompra {
+    grid-template-areas: "botonBorrar botonBorrar botonBorrar boton boton boton boton precio precio precio";
+  }
+  .carritoTerminarCompra #terminarCompraBoton, .carritoTerminarCompra #borrarCarritoBoton {
+    padding: 5px 5px;
+  }
+  .carritoTerminarCompra #borrarCarritoBoton {
+    grid-area: botonBorrar;
+    justify-self: start;
+    font-size: 0.9rem;
+    width: max-content;
+  }
+  .carritoTerminarCompra p {
+    grid-area: precio;
+    display: flex;
+    font-family: bebop;
+    font-size: 1.3rem;
+    margin-bottom: 0;
+  }
+}
 /*FOOTER*/
 .footer {
   display: grid;
