@@ -226,7 +226,7 @@ let productosLS = JSON.parse(localStorage.getItem("productosLS"));
 
 const fetchData = async () =>{
     try {
-        const res = await fetch('http://jsonblob.com/api/jsonblob/1009179080696020992');
+        const res = await fetch('../json/data.json');
         productos = await res.json();
 
         localStorage.setItem("productosLS", JSON.stringify(productos));

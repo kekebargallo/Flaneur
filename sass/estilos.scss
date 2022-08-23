@@ -1494,6 +1494,43 @@
         .carritoTerminarCompra{
             grid-template-areas: "botonBorrar botonBorrar botonBorrar boton boton boton boton precio precio precio";
         }
+
+        .sinCarritoContainer{
+            width: max-content;
+            margin: 0 auto;
+            height: 150px;
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-areas: "texto" "texto" "." "link";
+                h2{
+                    grid-area: texto;
+                    font-size: 2rem;
+                    font-family: bebop;
+                    margin-top: 15px;
+                    align-self: center;
+                    justify-self: center;
+                    text-decoration: underline 4px;
+                }
+                a{
+                    font-family: bebop;
+                    text-decoration: none;
+                    color:black;
+                    grid-area: link;
+                    align-self: end;
+                    justify-self: center;
+                    padding: 3px 15px;
+                    background-color: rgb(216, 216, 216);
+                    border-radius: 12px;
+                    transition: 0.3s;
+                    h3{
+                        font-size: 1.5rem;
+                    }
+                    &:hover{
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(63, 63, 63);
+                    }
+                }
+            }
     }
 
     @media screen and (max-width: 540px){
@@ -1558,11 +1595,11 @@
                 grid-area: precio;
                 display: flex;
                 font-family: bebop;
-                font-size: 1.3rem;
+                font-size: 1rem;
                 margin-bottom: 0;
             }
         }
-    }   
+    }
    /*FOOTER*/
    
    .footer {
